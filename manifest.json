@@ -12,13 +12,13 @@
 	  "storage"
   ],
 
-	"background": {
-		"scripts": ["background.js"]
-	},
+  "background": {
+	  "scripts": ["background.js"]
+  },
   
-	"web_accessible_resources": [
-		"html2canvas/src/renderers/canvas.js",
-		"html2canvas/dist/html2canvas.js"
-	]
+  "web_accessible_resources": [
+  	  "/html2canvas/src/renderers/bundle.js",
+	  "/html2canvas/dist/html2canvas.js"
+  ]
 
 }

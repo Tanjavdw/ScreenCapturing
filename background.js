@@ -38,15 +38,18 @@ function getHostname(href){
 function injectScript() {
 	console.log("erstes Div erscheint");
 	getActiveTab().then((tabs) => {
-		browser.tabs.executeScript(null, {
+		var inject1 = browser.tabs.executeScript(null, {
 			file: "/content_scripts/content.js"
 		});
-		browser.tabs.executeScript(null, {
+		inject1.then(null, handleError);
+		var inject2 = browser.tabs.executeScript(null, {
 			file: "/html2canvas/dist/html2canvas.js"
 		});
-		browser.tabs.executeScript(null, {
-			file: "/html2canvas/src/renderers/canvas.js"
+		inject2.then(null, handleError);
+		var inject3 = browser.tabs.executeScript(null, {
+			file: "/html2canvas/src/renderers/bundle.js"
 		});
+		inject3.then(null, handleError);
 		// send message to contentscript. Only the host part of url
 		browser.tabs.sendMessage(tabs[0].id, {currentUrl: getHostname(tabs[0].url)});
 	}); 	
