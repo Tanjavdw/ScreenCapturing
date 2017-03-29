@@ -967,9 +967,9 @@ if (typeof(define) === 'function' && define.amd) {
 }
 
 function renderDocument(document, options, windowWidth, windowHeight, html2canvasIndex) {
-	console.log("log1 in renderDocument()");
-    return createWindowClone(document, document, windowWidth, windowHeight, options, document.defaultView.pageXOffset, document.defaultView.pageYOffset).then(function(container) {
-        console.log("log2 in renderDocument()");
+    console.log("log 1");
+	return createWindowClone(document, document, windowWidth, windowHeight, options, document.defaultView.pageXOffset, document.defaultView.pageYOffset).then(function(container) {
+        console.log("log 2");
 		log("Document cloned");
         var attributeName = html2canvasNodeAttribute + html2canvasIndex;
         var selector = "[" + attributeName + "='" + html2canvasIndex + "']";
@@ -978,7 +978,7 @@ function renderDocument(document, options, windowWidth, windowHeight, html2canva
         var node = clonedWindow.document.querySelector(selector);
         var oncloneHandler = (typeof(options.onclone) === "function") ? Promise.resolve(options.onclone(clonedWindow.document)) : Promise.resolve(true);
         return oncloneHandler.then(function() {
-					console.log("log3 in renderDocument()");
+			console.log("log 3");
             return renderWindow(node, container, options, windowWidth, windowHeight);
         });
     });
