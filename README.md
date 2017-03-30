@@ -1,2 +1,2 @@
 # ScreenCapturing
-After 12 Seconds button will appear to take a screenshot from active tab.
+Button "take screenshot" will appear only on any page on mozilla.org.
