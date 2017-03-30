@@ -1,24 +1,21 @@
+
 {
+
+  "description": "My web extension",
   "manifest_version": 2,
   "name": "Study08-Screencapturing",
   "version": "1.0",
-  "description": "My web extension",
-
-  "permissions": [
-      "tabs",
-      "<all_urls>",
-	  "alarms",
-	  "webNavigation",
-	  "storage"
-  ],
-
-  "background": {
-	  "scripts": ["background.js"]
-  },
   
   "web_accessible_resources": [
-  	  "/html2canvas/src/renderers/bundle.js",
-	  "/html2canvas/dist/html2canvas.js"
+	  "html2canvas/dist/html2canvas.js"
+  ],
+
+  "content_scripts": [
+    {
+      "matches": ["*://*.mozilla.org/*"],
+      "js": ["content.js", "html2canvas/dist/html2canvas.js"]
+    }
   ]
+
 
 }
